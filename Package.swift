@@ -37,7 +37,7 @@ let package = Package(
 
     targets:
     [
-        .target(name:"BXMediaBrowser", dependencies:["BXSwiftUtils","BXSwiftUI"]),
+        .target(name:"BXMediaBrowser", dependencies:["BXSwiftUtils","BXSwiftUI","OAuth2"], resources:[.process("Resources")]),
         .testTarget(name:"BXMediaBrowserTests", dependencies:["BXMediaBrowser"]),
     ]
 )
