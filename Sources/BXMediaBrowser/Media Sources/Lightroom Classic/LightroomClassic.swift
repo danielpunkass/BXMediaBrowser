@@ -23,7 +23,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 
-#if canImport(iMedia) && os(macOS)
+#if canImport(iMedia) && os(macOS) && !BXMEDIABROWSER_EXCLUDE_LIGHTROOM_CLASSIC
 
 import iMedia
 import BXSwiftUtils

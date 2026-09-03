@@ -167,7 +167,7 @@ public extension ViewFactory
 
 	@ViewBuilder class func defaultSourceView(for source:Source) -> some View
 	{
-		#if canImport(iMedia) && os(macOS)
+		#if canImport(iMedia) && os(macOS) && !BXMEDIABROWSER_EXCLUDE_LIGHTROOM_CLASSIC
 		
 		if let source = source as? LightroomClassicSource
 		{
@@ -244,7 +244,7 @@ public extension ViewFactory
 
 	@ViewBuilder class func defaultHeaderView(for container:Container?, uiState:UIState) -> some View
 	{
-		#if canImport(iMedia) && os(macOS)
+		#if canImport(iMedia) && os(macOS) && !BXMEDIABROWSER_EXCLUDE_LIGHTROOM_CLASSIC
 
 		if let container = container as? UnsplashContainer, let filter = container.filter as? UnsplashFilter
 		{

@@ -37,7 +37,13 @@ let package = Package(
 
     targets:
     [
-        .target(name:"BXMediaBrowser", dependencies:["BXSwiftUtils","BXSwiftUI","OAuth2"], resources:[.process("Resources")]),
+        .target(name:"BXMediaBrowser", dependencies:["BXSwiftUtils","BXSwiftUI","OAuth2"], resources:[.process("Resources")], swiftSettings:
+        [
+            // MarsEdit builds its own iMedia.framework alongside this package during the transition away from it,
+            // which makes canImport(iMedia) true. The Lightroom Classic sources expect Boinx's iMedia binary, so
+            // keep them out of the build entirely.
+            .define("BXMEDIABROWSER_EXCLUDE_LIGHTROOM_CLASSIC"),
+        ]),
         .testTarget(name:"BXMediaBrowserTests", dependencies:["BXMediaBrowser"]),
     ]
 )
