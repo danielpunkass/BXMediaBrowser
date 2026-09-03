@@ -192,7 +192,7 @@ open class FolderObject : Object
 		// function. But we will still create a local progress object and set it to 100% immediately,
 		// so that Progress.globalParent gets notified and the progress bar is updated appropriately.
 		
-		#warning("FIXME: Implement proper progress reporting, since the above comment is no longer valid when considering cloud storage")
+		// FIXME: Implement proper progress reporting, since the above comment is no longer valid when considering cloud storage
 		
 		if let parent = Progress.globalParent
 		{

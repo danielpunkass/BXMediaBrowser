@@ -1739,6 +1739,7 @@
     "Sort by" : {
       "comment" : "Menu Item",
       "extractionState" : "manual",
+      "generatesSymbol" : false,
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1775,6 +1776,7 @@
     "Sort by:" : {
       "comment" : "Label",
       "extractionState" : "manual",
+      "generatesSymbol" : false,
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1810,6 +1812,7 @@
     },
     "⚠️" : {
       "extractionState" : "manual",
+      "generatesSymbol" : false,
       "localizations" : {
         "de" : {
           "stringUnit" : {
