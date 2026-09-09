@@ -728,6 +728,16 @@ extension ObjectCollectionView
 			// Get a file promise from the Object
 			
 			guard object.isLocallyAvailable || object.isDownloadable else { return nil }
+			
+			// Give the host application the chance to supply its own pasteboard content. It may need to
+			// capture application state that is only current while the drag is beginning. Returning nil
+			// accepts the default file promise below.
+			
+			if let writer = object.library?.dragDelegate?.pasteboardWriter(for:object)
+			{
+				return writer
+			}
+			
 			return object.filePromiseProvider
 		}
 		

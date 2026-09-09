@@ -40,7 +40,7 @@ import AppKit
 ///
 /// Insprired by: https://buckleyisms.com/blog/how-to-actually-implement-file-dragging-from-your-app-on-mac/
 
-public class ObjectFilePromiseProvider : NSFilePromiseProvider
+open class ObjectFilePromiseProvider : NSFilePromiseProvider
 {
 	/// The native Object that is attached to this NSFilePromiseProvider
 	
@@ -92,7 +92,7 @@ public class ObjectFilePromiseProvider : NSFilePromiseProvider
 
 	// If we have an attached native Object, then add objectIdentifierType
 	
-    public override func writableTypes(for pasteboard:NSPasteboard) -> [NSPasteboard.PasteboardType]
+    open override func writableTypes(for pasteboard:NSPasteboard) -> [NSPasteboard.PasteboardType]
     {
         var types = super.writableTypes(for:pasteboard)
         
@@ -106,7 +106,7 @@ public class ObjectFilePromiseProvider : NSFilePromiseProvider
 
 	// Not need for writingOptions for in-memory drags of native Objects
 
-    public override func writingOptions(forType type:NSPasteboard.PasteboardType, pasteboard:NSPasteboard) -> NSPasteboard.WritingOptions
+    open override func writingOptions(forType type:NSPasteboard.PasteboardType, pasteboard:NSPasteboard) -> NSPasteboard.WritingOptions
     {
         if type == Self.objectIdentifierType
         {
@@ -118,7 +118,7 @@ public class ObjectFilePromiseProvider : NSFilePromiseProvider
 
 	// When requested, return the identifier of the attached Object
 	
-    public override func pasteboardPropertyList(forType type:NSPasteboard.PasteboardType) -> Any?
+    open override func pasteboardPropertyList(forType type:NSPasteboard.PasteboardType) -> Any?
     {
         if type == Self.objectIdentifierType
         {
