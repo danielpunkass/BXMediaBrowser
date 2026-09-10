@@ -97,10 +97,19 @@ open class FolderSource : Source, AccessControl
 		
 		if let bookmarks = sourceState?[Self.bookmarksKey] as? [Data]
 		{
+			// Each URL needs its security scope open to be inspected, and each is relinquished again
+			// once the checks are done. The FolderContainer created below acquires access of its own
+			// and holds it for its lifetime, so nothing here needs to stay open.
+			
 			let folderURLs = bookmarks
 				.compactMap { URL(with:$0) }
 				.filter { $0.exists && $0.isDirectory }
-				.filter { $0.startAccessingSecurityScopedResource() }
+				.filter
+				{
+					guard $0.startAccessingSecurityScopedResource() else { return false }
+					$0.stopAccessingSecurityScopedResource()
+					return true
+				}
 				
 			for folderURL in folderURLs
 			{
