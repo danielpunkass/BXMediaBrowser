@@ -121,6 +121,8 @@ extension PhotosSourceView
     {
         #if os(macOS)
         
+        let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? NSLocalizedString("Status.noAccess.substituteAppName", tableName:"Photos", bundle:.BXMediaBrowser, comment:"Backup name if the app name cannot be deduced from the bundle")
+
 //		HStack(alignment:.top, spacing:12)
 //		{
 //			BXImage(systemName:"exclamationmark.triangle.fill")
@@ -131,7 +133,7 @@ extension PhotosSourceView
                 Text(NSLocalizedString("Status.noAccess.title", tableName:"Photos", bundle:.BXMediaBrowser, comment:"Alert Title"))
                     .bold()
                 
-                Text(NSLocalizedString("Status.noAccess.message", tableName:"Photos", bundle:.BXMediaBrowser, comment:"Alert Message"))
+                Text(String(format:NSLocalizedString("Status.noAccess.message", tableName:"Photos", bundle:.BXMediaBrowser, comment:"Alert Message"), appName))
                     .controlSize(.small)
                 
                 Button(NSLocalizedString("Status.noAccess.button", tableName:"Photos", bundle:.BXMediaBrowser, comment:"Alert Button"))
