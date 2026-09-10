@@ -467,11 +467,11 @@
       }
     },
     "Status.noAccess.substituteAppName" : {
-      "comment" : "Substitute string if the app name cannot be deduced from the bundle",
+      "comment" : "Backup name if the app name cannot be deduced from the bundle",
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "diese App"
           }
         },
@@ -483,19 +483,19 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "esta aplicación"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "cette application"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "questa app"
           }
         }
