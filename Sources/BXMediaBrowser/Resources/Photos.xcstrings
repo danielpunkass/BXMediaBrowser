@@ -437,31 +437,66 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bitte gewähren Sie FotoMagico Zugriff auf die Fotos Bibliothek. Gehen Sie zu Systemeinstellungen > Datenschutz & Sicherheit > Fotos. Danach starten Sie FotoMagico neu."
+            "value" : "Bitte gewähren Sie %1$@ Zugriff auf die Fotos Bibliothek. Gehen Sie zu Systemeinstellungen > Datenschutz & Sicherheit > Fotos. Danach starten Sie %1$@ neu."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please grant FotoMagico access rights to the Photos library in System Settings > Privacy & Security > Photos. Then relaunch FotoMagico."
+            "value" : "Please grant %1$@ access rights to the Photos library in System Settings > Privacy & Security > Photos. Then relaunch %1$@."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Por favor, concede a FotoMagico los derechos de acceso a la biblioteca de Fotos en Configuración del Sistema > Privacidad y Seguridad > Fotos. Luego, reinicia FotoMagico."
+            "value" : "Por favor, concede a %1$@ los derechos de acceso a la biblioteca de Fotos en Configuración del Sistema > Privacidad y Seguridad > Fotos. Luego, reinicia %1$@."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Veuillez autoriser FotoMagico à accéder à la bibliothèque Photos dans Réglages Système > Confidentialité et sécurité > Photos. Relancez ensuite FotoMagico."
+            "value" : "Veuillez autoriser %1$@ à accéder à la bibliothèque Photos dans Réglages Système > Confidentialité et sécurité > Photos. Relancez ensuite %1$@."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Si prega di concedere a FotoMagico i diritti di accesso alla libreria Foto in Impostazioni di Sistema > Privacy e Sicurezza > Foto. Quindi riavvia FotoMagico."
+            "value" : "Si prega di concedere a %1$@ i diritti di accesso alla libreria Foto in Impostazioni di Sistema > Privacy e Sicurezza > Foto. Quindi riavvia %1$@."
+          }
+        }
+      }
+    },
+    "Status.noAccess.substituteAppName" : {
+      "comment" : "Backup name if the app name cannot be deduced from the bundle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "diese App"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "this app"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "esta aplicación"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cette application"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "questa app"
           }
         }
       }
