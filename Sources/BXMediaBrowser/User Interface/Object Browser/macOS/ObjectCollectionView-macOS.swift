@@ -514,27 +514,80 @@ extension ObjectCollectionView
 			self._updateDataSource()
 		}
 		
+		// WHY THE EXCEPTION HANDLING
+		// --------------------------
+
+		// It is tempting to read the catch below as guarding against duplicate item identifiers, since
+		// Container.load() filters duplicates for exactly that reason. It is not, and the dates say so:
+		// the duplicate filter arrived in July 2022, and the catch here in August 2023, labelled
+		// "Experimental: Try to avoid crashes due to uncaught exceptions" with no cause identified.
+		// Duplicates had already been impossible for a year by then. Container.objects is private(set),
+		// is assigned in exactly one place after the filter runs, and Object hashes by identifier, so a
+		// duplicate cannot reach this snapshot at all.
+
+		// What can raise is Apple's own layout and batch update machinery. The ATTENTION note above
+		// createLayout() documents one reproducible instance of that in this very view. Since the cause
+		// of the crashes seen here was never pinned down, the catch stays, but it recovers deliberately
+		// rather than continuing with a collection view whose state is unknown.
+
 		/// Updates the dataSource when the data model has been changed
-		
+
 		@MainActor func _updateDataSource()
 		{
-			let objects = self.container?.objects ?? []
-			
-			var snapshot = NSDiffableDataSourceSnapshot<Int,Object>()
-			snapshot.appendSections([0])
-			snapshot.appendItems(objects, toSection:0)
-			
 			do
 			{
+				// Building the snapshot is inside the catch as well as applying it, because
+				// appendItems(_:toSection:) is the other place a bad item identifier can raise.
+
 				try NSException.catch
 				{
-					self.dataSource.apply(snapshot, animatingDifferences:shouldAnimate)
+					self.dataSource.apply(self.makeSnapshot(), animatingDifferences:self.shouldAnimate)
 				}
 			}
 			catch let error
 			{
 				log.error {"\(Self.self).\(#function) ERROR \(error)"}
+
+				// Reaching here means an exception unwound out of AppKit's batch update, which leaves the
+				// dataSource and the NSCollectionView free to disagree about what is on screen: neither the
+				// old nor the new snapshot is reliably in effect. Assert so that this is loud during
+				// development, since the cause has never been diagnosed - see the note above.
+
+				assertionFailure("Applying a snapshot raised an exception: \(error)")
+
+				// Then get the two back into agreement by applying a freshly built snapshot with the
+				// diffing and animation path bypassed entirely. If even that raises there is nothing
+				// further to try, so log and leave the grid alone rather than retrying in a loop.
+
+				do
+				{
+					try NSException.catch
+					{
+						self.dataSource.apply(self.makeSnapshot(), animatingDifferences:false)
+					}
+				}
+				catch let error
+				{
+					log.error {"\(Self.self).\(#function) ERROR recovery also failed \(error)"}
+				}
 			}
+		}
+
+		/// Builds a snapshot of the current Container's objects
+		///
+		/// Note that the dataSource uses Object directly as its item identifier: Object overrides hash and
+		/// isEqual() in terms of its identifier property, so two Objects describing the same item are one
+		/// snapshot item.
+
+		@MainActor private func makeSnapshot() -> NSDiffableDataSourceSnapshot<Int,Object>
+		{
+			let objects = self.container?.objects ?? []
+
+			var snapshot = NSDiffableDataSourceSnapshot<Int,Object>()
+			snapshot.appendSections([0])
+			snapshot.appendItems(objects, toSection:0)
+
+			return snapshot
 		}
 
 
