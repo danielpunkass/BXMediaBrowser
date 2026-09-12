@@ -59,10 +59,32 @@ extension Object
 //----------------------------------------------------------------------------------------------------------------------
 
 
+		/// Discards the cached thumbnail, metadata and local file URL, so that the next access loads them again.
+		///
+		/// A thumbnail or metadata load that is still running is waited out first. Clearing the cache underneath
+		/// it would not help: the load stores its result when it finishes, so the value the caller wanted discarded
+		/// would come straight back and stay cached. Waiting also clears the task of a load that failed, which
+		/// otherwise stays referenced forever and reports isLoadingThumbnail or isLoadingMetadata as true.
+		///
+		/// The task is only cleared if it is still the one that was awaited, because the actor can be re-entered
+		/// while waiting and a newer load may have replaced it.
+
 		public func purge() async
 		{
 			logDataModel.verbose {"Purging data for \(identifier)"}
-			
+
+			if let task = self._loadThumbnailTask
+			{
+				_ = try? await task.value
+				if self._loadThumbnailTask == task { self._loadThumbnailTask = nil }
+			}
+
+			if let task = self._loadMetadataTask
+			{
+				_ = try? await task.value
+				if self._loadMetadataTask == task { self._loadMetadataTask = nil }
+			}
+
 			self._thumbnailImage = nil
 			self._metadata = nil
 			self._localFileURL = nil
