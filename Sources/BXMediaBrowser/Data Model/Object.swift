@@ -171,16 +171,17 @@ open class Object : NSObject, ObservableObject, Identifiable, BXSignpostMixin
 	}
 
 
-	/// Purges the thumbnailImage and metadata. This can help to reduce memory footprint.
-	
+	/// Purges the thumbnailImage and metadata. This can help to reduce memory footprint, and is also how a host
+	/// makes an Object load its thumbnail again after the underlying media has changed.
+	///
+	/// If a load is in flight, the purge takes effect once it finishes rather than being skipped, and the
+	/// completionHandler is always called. Skipping would leave the in-flight result cached indefinitely, and a
+	/// caller that reloads in the completionHandler would never get the chance.
+
 	public func purge(_ completionHandler:(()->Void)? = nil)
 	{
 		Task
 		{
-			let isLoadingThumbnail = await self.loader.isLoadingThumbnail
-			let isLoadingMetadata = await self.loader.isLoadingMetadata
-			if isLoadingThumbnail || isLoadingMetadata { return }
-			
 			await self.loader.purge()
 			
 			await MainActor.run
