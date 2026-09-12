@@ -48,10 +48,6 @@ public class PhotosObject : Object
 			downloadFileHandler: Self.downloadFile,
 			in:library)
 
-		self.observer.didChangeHandler =
-		{
-			[weak self] in self?.objectDidChange($0)
-		}
 	}
 
 	/// Creates a unique (persistent) identifier for the specified PHAsset
@@ -65,7 +61,8 @@ public class PhotosObject : Object
 //----------------------------------------------------------------------------------------------------------------------
 
 
-	// If the PHAsset has changed, then reload the Object properties
+	// If the PHAsset has changed, then reload the Object properties. Called by the owning
+	// PhotosContainer, which observes the photo library on behalf of all of its Objects.
 	
 	func objectDidChange(_ change:PHChange)
 	{
@@ -98,9 +95,7 @@ public class PhotosObject : Object
 		self.data = fetchResult.object(at: 0)
 	}
 	
-	private let observer = PhotosChangeObserver()
-	
-	
+
 //----------------------------------------------------------------------------------------------------------------------
 
 

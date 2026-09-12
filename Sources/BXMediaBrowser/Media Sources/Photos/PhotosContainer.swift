@@ -360,6 +360,24 @@ public class PhotosContainer : Container
 				}
 		}
 		
+		// Forward the change to this Container's Objects, so that an edit to a single asset still
+		// refreshes its thumbnail and metadata. Each PhotosObject used to register its own
+		// PHPhotoLibraryChangeObserver for this, which meant a container of n assets registered n
+		// observers with the shared photo library - 40922 of them for a large All Photos container,
+		// every one of which PhotoKit has to notify on every change. One observer per Container does
+		// the same work: objectDidChange already ignores a change that does not affect its own asset.
+		
+		Task
+		{
+			await MainActor.run
+			{
+				for object in self.objects
+				{
+					(object as? PhotosObject)?.objectDidChange(change)
+				}
+			}
+		}
+		
 		// Only perform a requested reload if a container was loaded before
 		
 		if requestReload
