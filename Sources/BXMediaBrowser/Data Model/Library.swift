@@ -79,6 +79,13 @@ open class Library : ObservableObject, StateSaving
 	
 	public var didDropFileURLHandler:((URL)->Void)? = nil
 	
+	/// Optional delegate that lets the host application supply the pasteboard content for Objects dragged
+	/// out of this Library
+	
+	#if os(macOS)
+	public weak var dragDelegate:ObjectDragDelegate? = nil
+	#endif
+	
 	/// Internal helper object that coordinates library state saving
 	
 	internal let stateSaver = StateSaver()
