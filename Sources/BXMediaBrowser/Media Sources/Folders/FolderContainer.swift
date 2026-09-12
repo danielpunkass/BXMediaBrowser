@@ -44,6 +44,12 @@ open class FolderContainer : Container
 	/// Will be set to true if a folder was deleted in the Finder
 	
 	@Published public private(set) var isMissing = false
+	
+	/// The security scoped folder URL this Container holds access to, if access was granted. Released
+	/// in deinit. Non-nil only when startAccessingSecurityScopedResource() succeeded, since a stop
+	/// call must not be made for a start that failed.
+	
+	private var scopedFolderURL:URL? = nil
 
 	/// Creates a new Container for the folder at the specified URL
 	
@@ -64,6 +70,17 @@ open class FolderContainer : Container
 			loadHandler: Self.loadContents,
 			removeHandler: removeHandler,
 			in: library)
+		
+		// Hold access to the folder for as long as this Container exists. A security scoped URL has to
+		// be accessed between a start and a stop call, and a folder Container needs that access for its
+		// whole lifetime - to enumerate its contents, load thumbnails, and hand out file URLs - so the
+		// scope is acquired once here and relinquished in deinit rather than being re-acquired by
+		// everything that happens to need it.
+		
+		if url.startAccessingSecurityScopedResource()
+		{
+			self.scopedFolderURL = url
+		}
 		
 		// Observe changes of folder contents
 		
@@ -137,10 +154,19 @@ open class FolderContainer : Container
 	
 	public var folderURL:URL?
 	{
+		// Return the URL whose access this Container already holds. This used to resolve the bookmark
+		// and start a new security scope on every single access, none of which was ever stopped.
+		
+		if let scopedFolderURL = self.scopedFolderURL { return scopedFolderURL }
+		
 		guard let bookmark = self.data as? Data else { return nil }
-		guard let url = URL(with:bookmark) else { return nil }
-		guard url.startAccessingSecurityScopedResource() else { return nil }
-		return url
+		return URL(with:bookmark)
+	}
+	
+	
+	deinit
+	{
+		self.scopedFolderURL?.stopAccessingSecurityScopedResource()
 	}
 	
 	/// Returns the list of allowed sort Kinds for this Container
@@ -199,7 +225,13 @@ open class FolderContainer : Container
 		
 		guard let bookmark = data as? Data else { throw Error.notFound }
 		guard let folderURL = URL(with:bookmark) else { throw Error.notFound }
+		
+		// This resolves a fresh URL, so it needs its own scope, and must relinquish it before returning.
+		// The Container itself holds access for its lifetime, so releasing this one does not revoke
+		// access to the folder.
+		
 		guard folderURL.startAccessingSecurityScopedResource() else { throw Error.accessDenied }
+		defer { folderURL.stopAccessingSecurityScopedResource() }
 		guard folderURL.exists else { throw Error.notFound }
 		guard folderURL.isDirectory else { throw Error.notFound }
 		guard folderURL.isReadable else { throw Error.accessDenied }
