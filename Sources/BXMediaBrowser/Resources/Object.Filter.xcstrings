@@ -342,8 +342,8 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uso del recuento"
+            "state" : "machine_translated",
+            "value" : "Número de usos"
           }
         },
         "fr" : {
@@ -361,5 +361,5 @@
       }
     }
   },
-  "version" : "1.0"
+  "version" : "1.3"
 }

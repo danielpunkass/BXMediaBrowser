@@ -298,8 +298,8 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Para acceder a la biblioteca Lightroom Classic debe estar ejecutándose en segundo plano."
+            "state" : "machine_translated",
+            "value" : "Para acceder a la biblioteca de Lightroom Classic, la app debe estar abierta en segundo plano."
           }
         },
         "fr" : {

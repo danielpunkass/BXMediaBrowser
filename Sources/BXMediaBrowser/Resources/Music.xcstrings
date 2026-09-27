@@ -91,7 +91,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Concede acceso de lectura a la carpeta \"%@\" para poder usar los archivos de audio."
+            "value" : "Concede acceso de lectura a la carpeta “%@” para poder usar los archivos de audio."
           }
         },
         "fr" : {
@@ -449,8 +449,8 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conceder Acceso"
+            "state" : "machine_translated",
+            "value" : "Conceder acceso"
           }
         },
         "fr" : {
@@ -484,8 +484,8 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aplicación de música"
+            "state" : "machine_translated",
+            "value" : "App Música"
           }
         },
         "fr" : {

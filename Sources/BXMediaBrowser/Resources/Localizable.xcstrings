@@ -55,7 +55,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "¿Quieres eliminar la carpeta \"%@\"?"
+            "value" : "¿Quieres eliminar la carpeta “%@”?"
           }
         },
         "fr" : {
@@ -231,7 +231,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Inicia GarageBand y selecciona el ítem de menú GarageBand > Biblioteca de Sonidos > Descargar todos los sonidos disponibles."
+            "value" : "Inicia GarageBand y selecciona el ítem de menú GarageBand > Biblioteca de sonidos > Descargar todos los sonidos disponibles."
           }
         },
         "fr" : {
@@ -904,8 +904,8 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fecha de Creación"
+            "state" : "machine_translated",
+            "value" : "Fecha de creación"
           }
         },
         "fr" : {
@@ -1289,8 +1289,8 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tiempo"
+            "state" : "machine_translated",
+            "value" : "Tempo"
           }
         },
         "fr" : {
@@ -1430,8 +1430,8 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "¿Permitir acceso a la carpeta \"%@\"?"
+            "state" : "machine_translated",
+            "value" : "¿Permitir acceso a la carpeta “%@”?"
           }
         },
         "fr" : {
@@ -1574,8 +1574,8 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Revelar en Finder"
+            "state" : "machine_translated",
+            "value" : "Mostrar en el Finder"
           }
         },
         "fr" : {
