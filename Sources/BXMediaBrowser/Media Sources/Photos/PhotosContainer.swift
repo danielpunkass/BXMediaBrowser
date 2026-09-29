@@ -118,6 +118,40 @@ public class PhotosContainer : Container
 	
 	/// Loads the (shallow) contents of this Container
 	
+	/// Returns every asset in the albums of a folder, including the albums in its subfolders, each asset once. They are
+	/// fetched with the same options as an album's, so they are filtered and sorted the same way. Hidden assets stay
+	/// out even when the folder holds the Hidden album, since the options do not include them.
+	
+	class func assetsInAlbums(of collections:[PHCollection], options:PHFetchOptions) -> PHFetchResult<PHAsset>?
+	{
+		var identifiers = Set<String>()
+		
+		func collect(from collections:[PHCollection])
+		{
+			for collection in collections
+			{
+				if let album = collection as? PHAssetCollection
+				{
+					let assets = PHAsset.fetchAssets(in:album, options:options)
+					for i in 0 ..< assets.count
+					{
+						identifiers.insert(assets[i].localIdentifier)
+					}
+				}
+				else if let folder = collection as? PHCollectionList
+				{
+					collect(from:PhotosData.items(for:PHCollection.fetchCollections(in:folder, options:nil)))
+				}
+			}
+		}
+		
+		collect(from:collections)
+		
+		guard !identifiers.isEmpty else { return nil }
+		return PHAsset.fetchAssets(withLocalIdentifiers:Array(identifiers), options:options)
+	}
+	
+	
 	class func loadContents(for identifier:String, data:Any, filter:Object.Filter, in library:Library?) async throws -> Loader.Contents
 	{
 		guard let data = data as? PhotosData else { return ([],[]) }
@@ -163,7 +197,6 @@ public class PhotosContainer : Container
 				{
 					if let assetCollection = collection as? PHAssetCollection
 					{
-						assetsFetchResult = PHAsset.fetchAssets(in:assetCollection, options:fetchOptions)
 						let icon = assetCollection.assetCollectionType == .smartAlbum ? "gearshape" : "rectangle.stack"
 						let name = assetCollection.localizedTitle ?? ""
 						
@@ -194,6 +227,11 @@ public class PhotosContainer : Container
 						containers += container
 					}
 				}
+				
+				// A folder shows everything in its albums. Assigning each album's assets in turn, as this used to,
+				// left the folder showing only whichever album came last.
+				
+				assetsFetchResult = Self.assetsInAlbums(of:collections, options:fetchOptions)
 			
 			// A DateInterval let you drill down by year, month, day
 			
@@ -266,6 +304,13 @@ public class PhotosContainer : Container
 				if let assetCollection = assetCollection
 				{
 					assetsFetchResult = PHAsset.fetchAssets(in:assetCollection, options:fetchOptions)
+				}
+				
+				// Years has no collection of its own. It stands for all of the years, so it shows everything.
+				
+				else if unit == .era
+				{
+					assetsFetchResult = PHAsset.fetchAssets(with:fetchOptions)
 				}
 		}
 

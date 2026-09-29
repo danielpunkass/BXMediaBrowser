@@ -255,25 +255,32 @@ open class FolderContainer : Container
 			return url
 		}
 		
-		// Go through all URLs
+		// Each subdirectory becomes a Container
 		
-		for url in urls
+		for url in urls where url.isDirectory && !url.isPackage
 		{
 			guard !Task.isCancelled else { throw Error.loadContentsCancelled }
 			
-			// For a directory, create a Container
-			
-			if url.isDirectory && !url.isPackage
+			if let container = try? Self.createContainer(for:url, filter:filter, in:library)
 			{
-				if let container = try? Self.createContainer(for:url, filter:filter, in:library)
-				{
-					containers.append(container)
-				}
+				containers.append(container)
 			}
+		}
+		
+		// The files shown are this folder's own, or with Config.Folders.includesSubfolderContents also those of all
+		// its subfolders
+		
+		let fileURLs = Config.Folders.includesSubfolderContents ?
+			try self.fileURLsIncludingSubfolders(of:folderURL) :
+			urls.filter { !($0.isDirectory && !$0.isPackage) }
+		
+		for url in fileURLs
+		{
+			guard !Task.isCancelled else { throw Error.loadContentsCancelled }
 			
 			// If a file meets the filter criteria create an Object
 			
-			else if let url = Self.filter(url, with:filter)
+			if let url = Self.filter(url, with:filter)
 			{
 				if let object = try? Self.createObject(for:url, filter:filter, in:library)
 				{
@@ -308,6 +315,35 @@ open class FolderContainer : Container
 	
 	
 	/// Returns the names of all files inside this folder
+	
+	/// Returns the files in a folder and all of its subfolders, in the order the Finder would list them folder by
+	/// folder. Hidden files and the contents of packages are left out, as they are for a single folder, and symbolic
+	/// links to folders are not followed, so a link back up the hierarchy cannot make the walk endless.
+	
+	class func fileURLsIncludingSubfolders(of folderURL:URL) throws -> [URL]
+	{
+		let keys:[URLResourceKey] = [.isDirectoryKey, .isPackageKey, .isReadableKey]
+		
+		guard let enumerator = FileManager.default.enumerator(at:folderURL, includingPropertiesForKeys:keys, options:[.skipsHiddenFiles, .skipsPackageDescendants]) else
+		{
+			return []
+		}
+		
+		var fileURLs:[URL] = []
+		
+		for case let url as URL in enumerator
+		{
+			guard !Task.isCancelled else { throw Error.loadContentsCancelled }
+			
+			let values = try? url.resourceValues(forKeys:Set(keys))
+			let isFolder = values?.isDirectory == true && values?.isPackage != true
+			guard !isFolder, values?.isReadable != false else { continue }
+			
+			fileURLs.append(url)
+		}
+		
+		return fileURLs.sorted { $0.path.localizedStandardCompare($1.path) == .orderedAscending }
+	}
 	
 	class func filenames(in folderURL:URL) throws -> [String]
 	{

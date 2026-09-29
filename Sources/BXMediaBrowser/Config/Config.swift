@@ -71,6 +71,16 @@ public struct Config
 		
 		public static var warningMessage = NSLocalizedString("AppleLoops.warning", bundle:.BXMediaBrowser, comment:"Warning Message")
 	}
+
+	public struct Folders
+	{
+		/// When true, a folder shows the files in all of its subfolders as well as its own, the way an album folder in
+		/// Photos stands for everything in its albums. When false, the default, it shows only the files directly inside
+		/// it, and its subfolders are browsed separately. Set it once, before loading a Library; it is read without
+		/// synchronization while folders load.
+		
+		nonisolated(unsafe) public static var includesSubfolderContents = false
+	}
 }
 
 
