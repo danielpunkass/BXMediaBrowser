@@ -196,6 +196,24 @@ open class Source : ObservableObject, Identifiable, StateSaving
 		}
 	}
 
+	/// Inserts a top-level container at the specified position. Unlike addContainer(_:), the change is made immediately,
+	/// so a view that asked for it, such as a list accepting a drop, shows it in place without a moment's delay.
+	
+	@MainActor public func insertContainer(_ container:Container, at index:Int)
+	{
+		let index = max(0, min(index, self.containers.count))
+		self.objectWillChange.send()
+		self.containers.insert(container, at:index)
+	}
+
+	/// Moves top-level containers to a new position, with the same arguments as a SwiftUI ForEach's onMove action
+	
+	@MainActor public func moveContainers(fromOffsets offsets:IndexSet, toOffset destination:Int)
+	{
+		self.objectWillChange.send()
+		self.containers.move(fromOffsets:offsets, toOffset:destination)
+	}
+
 	/// Removes the specified subcontainer
 
 	public func removeContainer(_ container:Container)
