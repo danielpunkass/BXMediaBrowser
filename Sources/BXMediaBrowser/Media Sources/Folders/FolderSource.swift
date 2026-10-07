@@ -86,16 +86,25 @@ open class FolderSource : Source, AccessControl
 		
 		guard let filter = filter as? FolderFilter else { throw Container.Error.loadContentsFailed }
 		
-		// Add initial set of default containers
+		// Once a list of folders has been saved, it is the user's, and it is restored as it was left: in
+		// the same order, and without any default folder the user removed. The default containers are
+		// offered only until then.
 		
-		var containers:[Container] = try await self.defaultContainers(with:filter)
+		let bookmarks = sourceState?[Self.bookmarksKey] as? [Data]
+		
+		await MainActor.run
+		{
+			self.restoredBookmarks = bookmarks
+		}
+		
+		var containers:[Container] = bookmarks == nil ? try await self.defaultContainers(with:filter) : []
 		
 		// Load stored bookmarks from state. Convert each bookmark to a folder url. If the folder
 		// still exists, then create a FolderContainer for it.
-
+		
 		#if os(macOS)
 		
-		if let bookmarks = sourceState?[Self.bookmarksKey] as? [Data]
+		if let bookmarks = bookmarks
 		{
 			// Each URL needs its security scope open to be inspected, and each is relinquished again
 			// once the checks are done. The FolderContainer created below acquires access of its own
@@ -234,16 +243,29 @@ open class FolderSource : Source, AccessControl
 	{
 		var state = await super.state()
 		
-		let bookmarks = await self.containers
-			.compactMap { $0 as? FolderContainer }
-			.compactMap { $0.data as? Data }
+		// Until the folders have loaded, the containers list is empty and says nothing about what the
+		// user wants, so the state this source was loaded with is passed on unchanged. Saving the empty
+		// list instead would discard every folder the user added.
 		
-		state[Self.bookmarksKey] = bookmarks
-
+		if await self.isLoaded
+		{
+			state[Self.bookmarksKey] = await self.containers
+				.compactMap { $0 as? FolderContainer }
+				.compactMap { $0.data as? Data }
+		}
+		else if let bookmarks = await self.restoredBookmarks
+		{
+			state[Self.bookmarksKey] = bookmarks
+		}
+		
 		return state
 	}
 
 	internal static var bookmarksKey:String { "bookmarks" }
+
+	/// The folder bookmarks this source was loaded with, or nil if no list of folders had been saved
+
+	@MainActor private var restoredBookmarks:[Data]? = nil
 
 
 //----------------------------------------------------------------------------------------------------------------------
