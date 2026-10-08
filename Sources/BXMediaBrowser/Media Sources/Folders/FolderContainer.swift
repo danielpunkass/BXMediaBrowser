@@ -58,6 +58,19 @@ open class FolderContainer : Container
 		// Get the display name
 		
 		let displayName = name ?? FileManager.default.displayName(atPath:url.path)
+		
+		// Hold access to the folder for as long as this Container exists. A security scoped URL has to
+		// be accessed between a start and a stop call, and a folder Container needs that access for its
+		// whole lifetime - to enumerate its contents, load thumbnails, and hand out file URLs - so the
+		// scope is acquired once here and relinquished in deinit rather than being re-acquired by
+		// everything that happens to need it.
+		//
+		// The scope must be open before the bookmark is made. A URL resolved from a saved bookmark
+		// carries no access until it is started, and making a security scoped bookmark without access
+		// fails. That used to leave the Container with empty data: it could not load, and the next save
+		// replaced the user's working bookmark with the empty one, losing the folder.
+		
+		let isAccessingScope = url.startAccessingSecurityScopedResource()
 		let bookmark = (try? url.bookmarkData()) ?? Data()
 		
 		// Init the Container
@@ -71,13 +84,7 @@ open class FolderContainer : Container
 			removeHandler: removeHandler,
 			in: library)
 		
-		// Hold access to the folder for as long as this Container exists. A security scoped URL has to
-		// be accessed between a start and a stop call, and a folder Container needs that access for its
-		// whole lifetime - to enumerate its contents, load thumbnails, and hand out file URLs - so the
-		// scope is acquired once here and relinquished in deinit rather than being re-acquired by
-		// everything that happens to need it.
-		
-		if url.startAccessingSecurityScopedResource()
+		if isAccessingScope
 		{
 			self.scopedFolderURL = url
 		}

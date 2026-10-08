@@ -50,6 +50,12 @@ open class Library : ObservableObject, StateSaving
 		{
 			BXMediaBrowser.logDataModel.debug {"\(Self.self).\(#function) = \(selection.container?.identifier ?? "nil")"}
 
+			// The selection saved last time is restored only until something is selected, whether by that
+			// restore or by the user. Otherwise a Container that loads late, such as one in a slow source,
+			// would take the selection away from whatever the user has chosen in the meantime.
+
+			self.stateSaver.restoreSelectedContainerHandler = nil
+
 			// Request purging of thumbnails of previously selected Container
 			
 			selection.container?.isSelected = false
