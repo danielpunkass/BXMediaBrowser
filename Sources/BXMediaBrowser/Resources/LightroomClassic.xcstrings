@@ -33,6 +33,12 @@
             "state" : "translated",
             "value" : "Concedi Accesso"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクセスを許可"
+          }
         }
       }
     },
@@ -67,6 +73,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Concedi accesso a Lightroom Classic"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lightroom Classicへのアクセスを許可"
           }
         }
       }
@@ -103,6 +115,12 @@
             "state" : "translated",
             "value" : "Avvia Lightroom"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lightroomを起動"
+          }
         }
       }
     },
@@ -137,6 +155,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Le immagini sono state fornite da Adobe Lightroom Classic a dimensione ridotta.\n\nPer risolvere il problema, passa a Adobe Lightroom e seleziona la voce di menu Libreria > Anteprime > Crea anteprime 1:1."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adobe Lightroom Classicから提供された画像は縮小されたサイズです。\n\nこの問題を解決するには、Adobe Lightroomに切り替えて、メニュー項目「ライブラリ」＞「プレビュー」＞「1:1 プレビューを生成」を選択してください。"
           }
         }
       }
@@ -173,6 +197,12 @@
             "state" : "translated",
             "value" : "Avviso dimensione immagine"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画像サイズに関する警告"
+          }
         }
       }
     },
@@ -207,6 +237,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Revoca accesso"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクセス権を取り消す"
           }
         }
       }
@@ -243,6 +279,12 @@
             "state" : "translated",
             "value" : "La libreria di Lightroom non è leggibile. Si prega di concedere i diritti di accesso in lettura alla sua cartella principale."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lightroomライブラリを読み込めません。ライブラリを含むフォルダへの読み出しアクセス権を許可してください。"
+          }
         }
       }
     },
@@ -277,6 +319,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Diritti di accesso mancanti"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクセス権がありません"
           }
         }
       }
@@ -313,6 +361,12 @@
             "state" : "translated",
             "value" : "Per accedere alla libreria, Lightroom Classic deve essere in esecuzione in background."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ライブラリにアクセスするには、Lightroom Classicがバックグラウンドで実行されている必要があります。"
+          }
         }
       }
     },
@@ -347,6 +401,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lightroom Classic non in esecuzione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lightroom Classicが実行されていません"
           }
         }
       }

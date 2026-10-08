@@ -34,6 +34,12 @@
             "state" : "translated",
             "value" : "UTENTE"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザ"
+          }
         }
       }
     },
@@ -69,6 +75,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tutte le foto"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべての写真"
           }
         }
       }
@@ -106,6 +118,12 @@
             "state" : "translated",
             "value" : "Tutti i video"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべてのビデオ"
+          }
         }
       }
     },
@@ -141,6 +159,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fotocamera"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カメラ"
           }
         }
       }
@@ -178,6 +202,12 @@
             "state" : "translated",
             "value" : "Data di acquisizione"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撮影日"
+          }
         }
       }
     },
@@ -213,6 +243,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Codec"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コーデック"
           }
         }
       }
@@ -250,6 +286,12 @@
             "state" : "translated",
             "value" : "Descrizione"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "説明"
+          }
         }
       }
     },
@@ -286,6 +328,12 @@
             "state" : "translated",
             "value" : "Durata"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "長さ"
+          }
         }
       }
     },
@@ -321,6 +369,12 @@
             "state" : "translated",
             "value" : "L'accesso al server di Lightroom CC non è attualmente disponibile. Riprova più tardi."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在、Lightroom CCサーバにアクセスできません。あとでやり直してみてください。"
+          }
         }
       }
     },
@@ -355,6 +409,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il supporto di Lightroom CC non è configurato correttamente. Si prega di contattare lo sviluppatore di questa applicazione."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lightroom CCのサポートが正しく設定されていません。このアプリケーションの開発元にお問い合わせください。"
           }
         }
       }
@@ -392,6 +452,12 @@
             "state" : "translated",
             "value" : "Esposizione"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "露出"
+          }
         }
       }
     },
@@ -427,6 +493,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "File"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル"
           }
         }
       }
@@ -464,6 +536,12 @@
             "state" : "translated",
             "value" : "Dimensione File"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルサイズ"
+          }
         }
       }
     },
@@ -499,6 +577,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lunghezza focale"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "焦点距離"
           }
         }
       }
@@ -536,6 +620,12 @@
             "state" : "translated",
             "value" : "Frequenza dei fotogrammi"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フレームレート"
+          }
         }
       }
     },
@@ -571,6 +661,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dimensione immagine"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画像サイズ"
           }
         }
       }
@@ -608,6 +704,12 @@
             "state" : "translated",
             "value" : "Luogo"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "位置情報"
+          }
         }
       }
     },
@@ -644,6 +746,12 @@
             "state" : "translated",
             "value" : "Ricerca"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索"
+          }
         }
       }
     },
@@ -679,6 +787,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dimensione video"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ビデオサイズ"
           }
         }
       }

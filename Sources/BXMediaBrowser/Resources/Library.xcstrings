@@ -34,6 +34,12 @@
             "state" : "translated",
             "value" : "Audio"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オーディオ"
+          }
         }
       }
     },
@@ -70,6 +76,12 @@
             "state" : "translated",
             "value" : "Immagini"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画像"
+          }
         }
       }
     },
@@ -105,6 +117,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Video"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ビデオ"
           }
         }
       }

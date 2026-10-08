@@ -34,6 +34,12 @@
             "state" : "translated",
             "value" : "Album"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アルバム"
+          }
         }
       }
     },
@@ -69,6 +75,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nome"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前"
           }
         }
       }
@@ -106,6 +118,12 @@
             "state" : "translated",
             "value" : "Artista"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アーティスト"
+          }
         }
       }
     },
@@ -141,6 +159,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Data di acquisizione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撮影日"
           }
         }
       }
@@ -178,6 +202,12 @@
             "state" : "translated",
             "value" : "Data di creazione"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "作成日"
+          }
         }
       }
     },
@@ -213,6 +243,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Durata"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "長さ"
           }
         }
       }
@@ -250,6 +286,12 @@
             "state" : "translated",
             "value" : "Genere"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャンル"
+          }
         }
       }
     },
@@ -286,6 +328,12 @@
             "state" : "translated",
             "value" : "Nessuno"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "なし"
+          }
         }
       }
     },
@@ -320,6 +368,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Valutazione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "評価"
           }
         }
       }
@@ -356,6 +410,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Usa conteggio"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用回数"
           }
         }
       }

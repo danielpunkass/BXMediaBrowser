@@ -34,6 +34,12 @@
             "state" : "translated",
             "value" : "Aggiungi"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "追加"
+          }
         }
       }
     },
@@ -68,6 +74,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vuoi rimuovere la cartella \"%@\"?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダ「%@」を削除しますか?"
           }
         }
       }
@@ -104,6 +116,12 @@
             "state" : "translated",
             "value" : "Questa cartella potrebbe essere stata spostata o eliminata."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このフォルダは移動または削除された可能性があります。"
+          }
         }
       }
     },
@@ -139,6 +157,12 @@
             "state" : "translated",
             "value" : "⚠️ Cartella mancante"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️ フォルダが見つかりません"
+          }
         }
       }
     },
@@ -173,6 +197,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rimuovi cartella"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダを削除"
           }
         }
       }
@@ -210,6 +240,12 @@
             "state" : "translated",
             "value" : "Consenti"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "許可"
+          }
         }
       }
     },
@@ -245,6 +281,12 @@
             "state" : "translated",
             "value" : "Si prega di avviare GarageBand e selezionare il comando di menu Garage Band > Libreria Suoni > Scarica tutti i Suoni Disponibili."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GarageBandを起動して、メニューコマンド\n「GarageBand」＞「サウンドライブラリ」＞「使用可能なすべてのサウンドをダウンロード」を選択してください。"
+          }
         }
       }
     },
@@ -279,6 +321,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avvia Apple Music per scaricare questa canzone e renderla disponibile nel browser media."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この曲をダウンロードしてメディアブラウザで使用できるようにするには、Apple Musicを起動してください。"
           }
         }
       }
@@ -316,6 +364,12 @@
             "state" : "translated",
             "value" : "Ascendente"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "昇順"
+          }
         }
       }
     },
@@ -352,6 +406,12 @@
             "state" : "translated",
             "value" : "Annulla"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
+          }
         }
       }
     },
@@ -386,6 +446,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "I file multimediali protetti da DRM possono essere utilizzati solo in Apple Music o QuickTime Player."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DRMで保護されたメディアファイルは、Apple MusicまたはQuickTime Playerでのみ使用できます。"
           }
         }
       }
@@ -423,6 +489,12 @@
             "state" : "translated",
             "value" : "Discendente"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "降順"
+          }
         }
       }
     },
@@ -458,6 +530,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Direzione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "順序"
           }
         }
       }
@@ -495,6 +573,12 @@
             "state" : "translated",
             "value" : "Scaricamento"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダウンロード中"
+          }
         }
       }
     },
@@ -530,6 +614,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ottieni informazioni"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "情報を見る"
           }
         }
       }
@@ -567,6 +657,12 @@
             "state" : "translated",
             "value" : "Importazione file media"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メディアファイルを読み込み中"
+          }
         }
       }
     },
@@ -602,6 +698,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Accedi"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ログイン"
           }
         }
       }
@@ -639,6 +741,12 @@
             "state" : "translated",
             "value" : "Disconnetti"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ログアウト"
+          }
         }
       }
     },
@@ -673,6 +781,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Album"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アルバム"
           }
         }
       }
@@ -709,6 +823,12 @@
             "state" : "translated",
             "value" : "Aperture"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "絞り"
+          }
         }
       }
     },
@@ -743,6 +863,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Artista"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アーティスト"
           }
         }
       }
@@ -779,6 +905,12 @@
             "state" : "translated",
             "value" : "Data di acquisizione"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撮影日"
+          }
         }
       }
     },
@@ -813,6 +945,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Codec"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コーデック"
           }
         }
       }
@@ -849,6 +987,12 @@
             "state" : "translated",
             "value" : "Spazio colore"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カラースペース"
+          }
         }
       }
     },
@@ -883,6 +1027,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Compositore"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "作曲者"
           }
         }
       }
@@ -919,6 +1069,12 @@
             "state" : "translated",
             "value" : "Data di creazione"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "作成日"
+          }
         }
       }
     },
@@ -953,6 +1109,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Durata"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "長さ"
           }
         }
       }
@@ -989,6 +1151,12 @@
             "state" : "translated",
             "value" : "Tempo di esposizione"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "露出時間"
+          }
         }
       }
     },
@@ -1023,6 +1191,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "File"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル"
           }
         }
       }
@@ -1059,6 +1233,12 @@
             "state" : "translated",
             "value" : "Dimensione file"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルサイズ"
+          }
         }
       }
     },
@@ -1093,6 +1273,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lunghezza focale"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "焦点距離"
           }
         }
       }
@@ -1129,6 +1315,12 @@
             "state" : "translated",
             "value" : "Genere"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャンル"
+          }
         }
       }
     },
@@ -1163,6 +1355,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dimensione immagine"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画像サイズ"
           }
         }
       }
@@ -1199,6 +1397,12 @@
             "state" : "translated",
             "value" : "Tipo"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "種類"
+          }
         }
       }
     },
@@ -1233,6 +1437,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Data di modifica"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "変更日"
           }
         }
       }
@@ -1269,6 +1479,12 @@
             "state" : "translated",
             "value" : "Canzone"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "曲"
+          }
         }
       }
     },
@@ -1304,6 +1520,12 @@
             "state" : "translated",
             "value" : "Tempo"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テンポ"
+          }
         }
       }
     },
@@ -1335,6 +1557,12 @@
           }
         },
         "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "URL"
@@ -1374,6 +1602,12 @@
             "state" : "translated",
             "value" : "Dimensione video"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ビデオサイズ"
+          }
         }
       }
     },
@@ -1406,6 +1640,12 @@
           }
         },
         "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -1445,6 +1685,12 @@
             "state" : "translated",
             "value" : "Consentire l'accesso alla cartella \"%@\"?"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダ「%@」へのアクセスを許可しますか?"
+          }
         }
       }
     },
@@ -1480,6 +1726,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "QuickLook"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "クイックルック"
           }
         }
       }
@@ -1517,6 +1769,12 @@
             "state" : "translated",
             "value" : "Ricarica"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再読み込み"
+          }
         }
       }
     },
@@ -1552,6 +1810,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rimuovi"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "削除"
           }
         }
       }
@@ -1589,6 +1853,12 @@
             "state" : "translated",
             "value" : "Mostra nel Finder"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finderに表示"
+          }
         }
       }
     },
@@ -1624,6 +1894,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Salva"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
           }
         }
       }
@@ -1661,6 +1937,12 @@
             "state" : "translated",
             "value" : "Cerca"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索"
+          }
         }
       }
     },
@@ -1697,6 +1979,12 @@
             "state" : "translated",
             "value" : "Seleziona"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択"
+          }
         }
       }
     },
@@ -1732,6 +2020,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostra nomi file"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル名を表示"
           }
         }
       }
@@ -1770,6 +2064,12 @@
             "state" : "translated",
             "value" : "Ordina per"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "並べ替え"
+          }
         }
       }
     },
@@ -1807,6 +2107,12 @@
             "state" : "translated",
             "value" : "Ordina per:"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "並べ替え:"
+          }
         }
       }
     },
@@ -1839,6 +2145,12 @@
           }
         },
         "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "⚠️"

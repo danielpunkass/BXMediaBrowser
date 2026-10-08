@@ -33,6 +33,12 @@
             "state" : "translated",
             "value" : "di %@ su Pexels"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撮影: %@さん（Pexels）"
+          }
         }
       }
     },
@@ -68,6 +74,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Descrizione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "説明"
           }
         }
       }
@@ -105,6 +117,12 @@
             "state" : "translated",
             "value" : "Dimensione immagine"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画像サイズ"
+          }
         }
       }
     },
@@ -140,6 +158,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foto"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "写真"
           }
         }
       }
@@ -177,6 +201,12 @@
             "state" : "translated",
             "value" : "Fotografo"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撮影者"
+          }
         }
       }
     },
@@ -212,6 +242,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cerca"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索"
           }
         }
       }
@@ -249,6 +285,12 @@
             "state" : "translated",
             "value" : "Video"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ビデオ"
+          }
         }
       }
     },
@@ -285,6 +327,12 @@
             "state" : "translated",
             "value" : "Dimensione video"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ビデオサイズ"
+          }
         }
       }
     },
@@ -319,6 +367,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Qualsiasi"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "指定なし"
           }
         }
       }
@@ -356,6 +410,12 @@
             "state" : "translated",
             "value" : "Nero"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ブラック"
+          }
         }
       }
     },
@@ -391,6 +451,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Blu"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ブルー"
           }
         }
       }
@@ -428,6 +494,12 @@
             "state" : "translated",
             "value" : "Marrone"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ブラウン"
+          }
         }
       }
     },
@@ -463,6 +535,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grigio"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "グレイ"
           }
         }
       }
@@ -500,6 +578,12 @@
             "state" : "translated",
             "value" : "Verde"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "グリーン"
+          }
         }
       }
     },
@@ -535,6 +619,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Orizzontale"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "横向き"
           }
         }
       }
@@ -572,6 +662,12 @@
             "state" : "translated",
             "value" : "Arancione"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オレンジ"
+          }
         }
       }
     },
@@ -607,6 +703,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rosa"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ピンク"
           }
         }
       }
@@ -644,6 +746,12 @@
             "state" : "translated",
             "value" : "Verticale"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "縦向き"
+          }
         }
       }
     },
@@ -679,6 +787,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rosso"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "レッド"
           }
         }
       }
@@ -716,6 +830,12 @@
             "state" : "translated",
             "value" : "Quadrato"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正方形"
+          }
         }
       }
     },
@@ -751,6 +871,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Turchese"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ターコイズ"
           }
         }
       }
@@ -788,6 +914,12 @@
             "state" : "translated",
             "value" : "Viola"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バイオレット"
+          }
         }
       }
     },
@@ -824,6 +956,12 @@
             "state" : "translated",
             "value" : "Bianco"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホワイト"
+          }
         }
       }
     },
@@ -859,6 +997,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Giallo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "イエロー"
           }
         }
       }

@@ -34,6 +34,12 @@
             "state" : "translated",
             "value" : "Album"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アルバム"
+          }
         }
       }
     },
@@ -70,6 +76,12 @@
             "state" : "translated",
             "value" : "Album"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アルバム"
+          }
         }
       }
     },
@@ -105,6 +117,12 @@
             "state" : "translated",
             "value" : "Si prega di concedere l'accesso in lettura alla cartella \"%@\" per rendere utilizzabili i file audio."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オーディオファイルを使用できるようにするには、フォルダ「%@」への読み出しアクセスを許可してください。"
+          }
         }
       }
     },
@@ -139,6 +157,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "⚠️ Diritti di accesso mancanti"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️ アクセス権がありません"
           }
         }
       }
@@ -176,6 +200,12 @@
             "state" : "translated",
             "value" : "Artista"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アーティスト"
+          }
         }
       }
     },
@@ -211,6 +241,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Artisti"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アーティスト"
           }
         }
       }
@@ -248,6 +284,12 @@
             "state" : "translated",
             "value" : "File audio"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オーディオファイル"
+          }
         }
       }
     },
@@ -283,6 +325,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Compositore"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "作曲者"
           }
         }
       }
@@ -320,6 +368,12 @@
             "state" : "translated",
             "value" : "Durata"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再生時間"
+          }
         }
       }
     },
@@ -355,6 +409,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dimensione file"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルサイズ"
           }
         }
       }
@@ -392,6 +452,12 @@
             "state" : "translated",
             "value" : "Genere"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャンル"
+          }
         }
       }
     },
@@ -427,6 +493,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Generi"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャンル"
           }
         }
       }
@@ -464,6 +536,12 @@
             "state" : "translated",
             "value" : "Concedi Accesso"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクセスを許可"
+          }
         }
       }
     },
@@ -499,6 +577,12 @@
             "state" : "translated",
             "value" : "App Musica"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ミュージック"
+          }
         }
       }
     },
@@ -533,6 +617,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Questo brano non è disponibile sul tuo computer. Per favore vai all'App Musica per scaricare il brano su questo computer."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このトラックはこのコンピュータ上にありません。「ミュージック」Appで、このコンピュータにトラックをダウンロードしてください。"
           }
         }
       }
@@ -570,6 +660,12 @@
             "state" : "translated",
             "value" : "Playlist"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレイリスト"
+          }
         }
       }
     },
@@ -605,6 +701,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Revoca accesso"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクセス権を取り消す"
           }
         }
       }
@@ -642,6 +744,12 @@
             "state" : "translated",
             "value" : "Canzone"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "曲"
+          }
         }
       }
     },
@@ -677,6 +785,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Canzoni"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "曲"
           }
         }
       }

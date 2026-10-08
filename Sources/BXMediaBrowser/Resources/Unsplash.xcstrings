@@ -33,6 +33,12 @@
             "state" : "translated",
             "value" : "di %@ su Unsplash"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撮影: %@さん（Unsplash）"
+          }
         }
       }
     },
@@ -68,6 +74,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aperture"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "絞り"
           }
         }
       }
@@ -105,6 +117,12 @@
             "state" : "translated",
             "value" : "Data di acquisizione"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撮影日"
+          }
         }
       }
     },
@@ -140,6 +158,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Data di creazione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "作成日"
           }
         }
       }
@@ -177,6 +201,12 @@
             "state" : "translated",
             "value" : "Descrizione"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "説明"
+          }
         }
       }
     },
@@ -212,6 +242,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tempo di esposizione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "露出時間"
           }
         }
       }
@@ -249,6 +285,12 @@
             "state" : "translated",
             "value" : "Lunghezza focale"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "焦点距離"
+          }
         }
       }
     },
@@ -284,6 +326,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dimensione immagine"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画像サイズ"
           }
         }
       }
@@ -321,6 +369,12 @@
             "state" : "translated",
             "value" : "Luogo"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "位置情報"
+          }
         }
       }
     },
@@ -356,6 +410,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foto"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "写真"
           }
         }
       }
@@ -393,6 +453,12 @@
             "state" : "translated",
             "value" : "Fotografo"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撮影者"
+          }
         }
       }
     },
@@ -428,6 +494,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cerca"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索"
           }
         }
       }
@@ -465,6 +537,12 @@
             "state" : "translated",
             "value" : "Fonte"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提供元"
+          }
         }
       }
     },
@@ -499,6 +577,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Qualsiasi"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "指定なし"
           }
         }
       }
@@ -536,6 +620,12 @@
             "state" : "translated",
             "value" : "Scuro"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暗め"
+          }
         }
       }
     },
@@ -546,7 +636,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Schwarz\/Weiss"
+            "value" : "Schwarz/Weiss"
           }
         },
         "en" : {
@@ -571,6 +661,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "B&N"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "白黒"
           }
         }
       }
@@ -608,6 +704,12 @@
             "state" : "translated",
             "value" : "Blu"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ブルー"
+          }
         }
       }
     },
@@ -643,6 +745,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verde"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "グリーン"
           }
         }
       }
@@ -680,6 +788,12 @@
             "state" : "translated",
             "value" : "Orizzontale"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "横向き"
+          }
         }
       }
     },
@@ -715,6 +829,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rosa"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ピンク"
           }
         }
       }
@@ -752,6 +872,12 @@
             "state" : "translated",
             "value" : "Arancione"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オレンジ"
+          }
         }
       }
     },
@@ -787,6 +913,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verticale"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "縦向き"
           }
         }
       }
@@ -824,6 +956,12 @@
             "state" : "translated",
             "value" : "Viola"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "パープル"
+          }
         }
       }
     },
@@ -859,6 +997,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rosso"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "レッド"
           }
         }
       }
@@ -896,6 +1040,12 @@
             "state" : "translated",
             "value" : "Quadrato"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正方形"
+          }
         }
       }
     },
@@ -931,6 +1081,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Teal"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ティール"
           }
         }
       }
@@ -968,6 +1124,12 @@
             "state" : "translated",
             "value" : "Luminoso"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "明るめ"
+          }
         }
       }
     },
@@ -1004,9 +1166,15 @@
             "state" : "translated",
             "value" : "Giallo"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "イエロー"
+          }
         }
       }
     }
   },
-  "version" : "1.0"
+  "version" : "1.3"
 }
