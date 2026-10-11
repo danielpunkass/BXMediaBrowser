@@ -38,9 +38,14 @@ public class BXObjectCollectionView : QuicklookCollectionView
 	public static let getInfoNotification = Notification.Name("BXObjectCollectionView.getInfo")
 	public static let selectAllNotification = Notification.Name("BXObjectCollectionView.selectAll")
 	public static let deselectAllNotification = Notification.Name("BXObjectCollectionView.deselectAll")
+	public static let selectObjectsNotification = Notification.Name("BXObjectCollectionView.selectObjects")
 	
 	internal var observers:[Any] = []
 	
+	/// The identifiers of Objects to select once they appear, as asked for by selectObjects(withIdentifiers:)
+
+	private var pendingSelectionIdentifiers:[String]? = nil
+
 	
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -62,6 +67,13 @@ public class BXObjectCollectionView : QuicklookCollectionView
 		self.observers += NotificationCenter.default.publisher(for:Self.deselectAllNotification, object:nil).sink
 		{
 			[weak self] _ in self?.deselectAll(nil)
+		}
+
+		self.observers += NotificationCenter.default.publisher(for:Self.selectObjectsNotification, object:nil).sink
+		{
+			[weak self] notification in
+			guard let identifiers = notification.object as? [String] else { return }
+			self?.selectObjects(withIdentifiers:identifiers)
 		}
 	}
 	
@@ -211,6 +223,55 @@ public class BXObjectCollectionView : QuicklookCollectionView
 	public static func deselectAll()
 	{
 		NotificationCenter.default.post(name:Self.deselectAllNotification, object:nil)
+	}
+
+	/// Selects the Objects with the specified identifiers (in all browsers), as if the user had clicked them.
+	///
+	/// An Object that is not shown yet, for example because its Container is still loading or was only just
+	/// selected, is selected as soon as it appears. A click in the browser cancels a request still waiting.
+
+	public static func selectObjects(withIdentifiers identifiers:[String])
+	{
+		NotificationCenter.default.post(name:Self.selectObjectsNotification, object:identifiers)
+	}
+
+	private func selectObjects(withIdentifiers identifiers:[String])
+	{
+		self.pendingSelectionIdentifiers = identifiers
+		self.applyPendingSelection()
+	}
+
+	/// Selects any Objects still waiting to be selected, if they are now shown. Called whenever the shown
+	/// Objects change.
+
+	func applyPendingSelection()
+	{
+		guard let identifiers = self.pendingSelectionIdentifiers else { return }
+		guard let dataSource = self.dataSource as? NSCollectionViewDiffableDataSource<Int,Object> else { return }
+
+		let wanted = Set(identifiers)
+		let indexPaths = Set(dataSource.snapshot().itemIdentifiers
+			.filter { wanted.contains($0.identifier) }
+			.compactMap { dataSource.indexPath(for:$0) })
+
+		guard let first = indexPaths.sorted().first else { return }
+		self.pendingSelectionIdentifiers = nil
+
+		self.selectionIndexPaths = indexPaths
+		self.scrollToItems(at:[first], scrollPosition:.nearestHorizontalEdge)
+
+		// Setting the selection does not reach the delegate, which is what announces a selection to everyone
+		// else, so tell it as a click would
+
+		self.delegate?.collectionView?(self, didSelectItemsAt:indexPaths)
+	}
+
+	// A click supersedes a selection still waiting for its Objects to appear
+
+	override public func mouseDown(with event:NSEvent)
+	{
+		self.pendingSelectionIdentifiers = nil
+		super.mouseDown(with:event)
 	}
 
 }

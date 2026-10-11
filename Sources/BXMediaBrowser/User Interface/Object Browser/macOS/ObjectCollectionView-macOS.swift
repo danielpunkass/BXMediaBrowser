@@ -319,6 +319,7 @@ extension ObjectCollectionView
     {
 		// Setup the cell provider for the dataSource
 		
+        coordinator.collectionView = collectionView
         coordinator.dataSource = NSCollectionViewDiffableDataSource<Int,Object>(collectionView:collectionView)
         {
 			[weak coordinator] (collectionView:NSCollectionView, indexPath:IndexPath, identifier:Object) -> NSCollectionViewItem? in
@@ -439,6 +440,11 @@ extension ObjectCollectionView
 		
 		var dataSource: NSCollectionViewDiffableDataSource<Int,Object>! = nil
 		
+		/// The collection view the dataSource drives, so that a selection waiting for its Objects can be applied
+		/// once they are shown
+
+		weak var collectionView:NSCollectionView? = nil
+
 		/// The number of cells that fit inside a single row
 		
 //		var columnCount = 0
@@ -543,6 +549,8 @@ extension ObjectCollectionView
 				{
 					self.dataSource.apply(self.makeSnapshot(), animatingDifferences:self.shouldAnimate)
 				}
+
+				(self.collectionView as? BXObjectCollectionView)?.applyPendingSelection()
 			}
 			catch let error
 			{
