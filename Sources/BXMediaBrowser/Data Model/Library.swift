@@ -90,6 +90,11 @@ open class Library : ObservableObject, StateSaving
 	
 	#if os(macOS)
 	public weak var dragDelegate:ObjectDragDelegate? = nil
+
+	/// Optional delegate that takes files dropped on the object browser, instead of the selected Container's
+	/// fileDropDestination
+
+	public weak var fileDropDelegate:ObjectBrowserFileDropDelegate? = nil
 	#endif
 	
 	/// Internal helper object that coordinates library state saving

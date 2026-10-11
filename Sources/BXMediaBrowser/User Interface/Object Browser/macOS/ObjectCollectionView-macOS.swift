@@ -833,6 +833,16 @@ extension ObjectCollectionView
 		
 		@MainActor public func collectionView(_ collectionView:NSCollectionView, validateDrop draggingInfo:NSDraggingInfo, proposedIndexPath:AutoreleasingUnsafeMutablePointer<NSIndexPath>, dropOperation proposedDropOperation:UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation
 		{
+			// A host that takes dropped files gets every drop, so it is the whole browser that takes it, not a
+			// position among the Objects
+
+			if let fileDropDelegate = self.container?.library?.fileDropDelegate
+			{
+				guard fileDropDelegate.objectBrowser(canAcceptDrop:draggingInfo) else { return [] }
+				proposedDropOperation.pointee = .on
+				return .copy
+			}
+
 			return self.container?.fileDropDestination?.collectionView(collectionView, validateDrop:draggingInfo, proposedIndexPath:proposedIndexPath, dropOperation:proposedDropOperation) ?? []
 		}
 
@@ -841,6 +851,11 @@ extension ObjectCollectionView
 		
 		@MainActor public func collectionView(_ collectionView:NSCollectionView, acceptDrop draggingInfo:NSDraggingInfo, indexPath:IndexPath, dropOperation:NSCollectionView.DropOperation) -> Bool
 		{
+			if let fileDropDelegate = self.container?.library?.fileDropDelegate
+			{
+				return fileDropDelegate.objectBrowser(acceptDrop:draggingInfo)
+			}
+
 			return self.container?.fileDropDestination?.collectionView(collectionView, acceptDrop:draggingInfo, indexPath:indexPath, dropOperation:dropOperation) ?? false
 		}
 

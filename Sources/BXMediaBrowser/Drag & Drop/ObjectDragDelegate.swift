@@ -55,4 +55,27 @@ public protocol ObjectDragDelegate : AnyObject
 }
 
 
+//----------------------------------------------------------------------------------------------------------------------
+
+
+/// Lets the host application take files dropped on the object browser.
+///
+/// Without one, a drop is offered to the selected Container's fileDropDestination, which for a folder copies the
+/// dropped files into that folder. A host that wants dropped files for itself, say to list or configure them, can
+/// implement this protocol and assign it to Library.fileDropDelegate. The browser then offers every drop to the
+/// delegate instead, whatever Container is selected, and never copies anything.
+
+public protocol ObjectBrowserFileDropDelegate : AnyObject
+{
+	/// Returns true if the delegate would accept the drag if it were dropped now. Called as the drag moves.
+
+	@MainActor func objectBrowser(canAcceptDrop draggingInfo:NSDraggingInfo) -> Bool
+
+	/// Takes the dropped files, returning true if it accepted them. Read the files from the dragging pasteboard
+	/// here, during the drop, which is when the sandbox extends access to them.
+
+	@MainActor func objectBrowser(acceptDrop draggingInfo:NSDraggingInfo) -> Bool
+}
+
+
 #endif
