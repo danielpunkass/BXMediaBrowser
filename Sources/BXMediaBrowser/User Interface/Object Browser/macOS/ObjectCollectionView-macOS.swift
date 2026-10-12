@@ -115,6 +115,10 @@ public struct ObjectCollectionView<Cell:ObjectCell> : NSViewRepresentable
         collectionView.setDraggingSourceOperationMask([.copy], forLocal:true)
         collectionView.setDraggingSourceOperationMask([.copy], forLocal:false)
 		FolderDropDestination.registerDragTypes(for:collectionView)
+		collectionView.fileDropDelegateProvider =
+		{
+			[weak coordinator = context.coordinator] in coordinator?.container?.library?.fileDropDelegate
+		}
 		
 		// Wrap in a NSScrollView
 		
@@ -540,6 +544,8 @@ extension ObjectCollectionView
 
 		@MainActor func _updateDataSource()
 		{
+			let selectionBefore = self.selectedObjectIdentifiers
+
 			do
 			{
 				// Building the snapshot is inside the catch as well as applying it, because
@@ -548,6 +554,16 @@ extension ObjectCollectionView
 				try NSException.catch
 				{
 					self.dataSource.apply(self.makeSnapshot(), animatingDifferences:self.shouldAnimate)
+				}
+
+				// An Object that leaves the Container also leaves the selection, which NSCollectionView does without
+				// telling its delegate, so announce the change as a click would. Otherwise everyone else would go on
+				// treating an Object that is no longer shown as selected.
+
+				if let collectionView = self.collectionView, self.selectedObjectIdentifiers != selectionBefore
+				{
+					self.updatePreviewPanel()
+					self.sendDidSelectObjectsNotification(for:collectionView)
 				}
 
 				(self.collectionView as? BXObjectCollectionView)?.applyPendingSelection()
@@ -579,6 +595,14 @@ extension ObjectCollectionView
 					log.error {"\(Self.self).\(#function) ERROR recovery also failed \(error)"}
 				}
 			}
+		}
+
+		/// The identifiers of the selected Objects
+
+		@MainActor private var selectedObjectIdentifiers:Set<String>
+		{
+			guard let collectionView = self.collectionView else { return [] }
+			return Set(collectionView.selectionIndexPaths.compactMap { self.dataSource.itemIdentifier(for:$0)?.identifier })
 		}
 
 		/// Builds a snapshot of the current Container's objects
@@ -833,16 +857,6 @@ extension ObjectCollectionView
 		
 		@MainActor public func collectionView(_ collectionView:NSCollectionView, validateDrop draggingInfo:NSDraggingInfo, proposedIndexPath:AutoreleasingUnsafeMutablePointer<NSIndexPath>, dropOperation proposedDropOperation:UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation
 		{
-			// A host that takes dropped files gets every drop, so it is the whole browser that takes it, not a
-			// position among the Objects
-
-			if let fileDropDelegate = self.container?.library?.fileDropDelegate
-			{
-				guard fileDropDelegate.objectBrowser(canAcceptDrop:draggingInfo) else { return [] }
-				proposedDropOperation.pointee = .on
-				return .copy
-			}
-
 			return self.container?.fileDropDestination?.collectionView(collectionView, validateDrop:draggingInfo, proposedIndexPath:proposedIndexPath, dropOperation:proposedDropOperation) ?? []
 		}
 
@@ -851,11 +865,6 @@ extension ObjectCollectionView
 		
 		@MainActor public func collectionView(_ collectionView:NSCollectionView, acceptDrop draggingInfo:NSDraggingInfo, indexPath:IndexPath, dropOperation:NSCollectionView.DropOperation) -> Bool
 		{
-			if let fileDropDelegate = self.container?.library?.fileDropDelegate
-			{
-				return fileDropDelegate.objectBrowser(acceptDrop:draggingInfo)
-			}
-
 			return self.container?.fileDropDestination?.collectionView(collectionView, acceptDrop:draggingInfo, indexPath:indexPath, dropOperation:dropOperation) ?? false
 		}
 

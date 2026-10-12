@@ -42,6 +42,10 @@ public class BXObjectCollectionView : QuicklookCollectionView
 	
 	internal var observers:[Any] = []
 	
+	/// Supplies the host's file drop delegate, if it has one, for the Container currently shown
+
+	var fileDropDelegateProvider:(()->ObjectBrowserFileDropDelegate?)? = nil
+
 	/// The identifiers of Objects to select once they appear, as asked for by selectObjects(withIdentifiers:)
 
 	private var pendingSelectionIdentifiers:[String]? = nil
@@ -264,6 +268,90 @@ public class BXObjectCollectionView : QuicklookCollectionView
 		// else, so tell it as a click would
 
 		self.delegate?.collectionView?(self, didSelectItemsAt:indexPaths)
+	}
+
+	// MARK: - Filling the visible area
+
+	// The collection view is otherwise only as tall as its rows, so with only a row or two, the space below them belongs
+	// to the clip view, and a drop or a click there does not reach the browser. Keeping it at least as tall as the
+	// visible area makes the whole of it the browser's.
+
+	private var clipViewObserver:Any? = nil
+
+	override public func setFrameSize(_ newSize:NSSize)
+	{
+		var size = newSize
+		if let clipView = self.enclosingScrollView?.contentView
+		{
+			size.height = max(size.height, clipView.bounds.height)
+		}
+		super.setFrameSize(size)
+	}
+
+	override public func viewDidMoveToSuperview()
+	{
+		super.viewDidMoveToSuperview()
+
+		self.clipViewObserver = nil
+		guard let clipView = self.enclosingScrollView?.contentView else { return }
+
+		clipView.postsFrameChangedNotifications = true
+		self.clipViewObserver = NotificationCenter.default.publisher(for:NSView.frameDidChangeNotification, object:clipView).sink
+		{
+			[weak self] _ in
+			guard let self = self else { return }
+			let contentHeight = self.collectionViewLayout?.collectionViewContentSize.height ?? self.frame.height
+			self.setFrameSize(NSSize(width:self.frame.width, height:contentHeight))
+		}
+		self.setFrameSize(self.frame.size)
+	}
+
+	// MARK: - Drops taken by the host
+
+	// A host with a file drop delegate takes drops on the whole browser, so they are handled here rather than by
+	// NSCollectionView's own drop handling, which offers a drop to its delegate only where the layout reports a drop
+	// target, and the compositional layout reports none. Without a delegate, drops go to NSCollectionView as before,
+	// and from there to the Container's fileDropDestination.
+
+	private var fileDropDelegate:ObjectBrowserFileDropDelegate?
+	{
+		self.fileDropDelegateProvider?()
+	}
+
+	override public func draggingEntered(_ sender:NSDraggingInfo) -> NSDragOperation
+	{
+		guard let fileDropDelegate = self.fileDropDelegate else { return super.draggingEntered(sender) }
+		return fileDropDelegate.objectBrowser(canAcceptDrop:sender) ? .copy : []
+	}
+
+	override public func draggingUpdated(_ sender:NSDraggingInfo) -> NSDragOperation
+	{
+		guard let fileDropDelegate = self.fileDropDelegate else { return super.draggingUpdated(sender) }
+		return fileDropDelegate.objectBrowser(canAcceptDrop:sender) ? .copy : []
+	}
+
+	override public func draggingExited(_ sender:NSDraggingInfo?)
+	{
+		guard self.fileDropDelegate == nil else { return }
+		super.draggingExited(sender)
+	}
+
+	override public func prepareForDragOperation(_ sender:NSDraggingInfo) -> Bool
+	{
+		guard self.fileDropDelegate == nil else { return true }
+		return super.prepareForDragOperation(sender)
+	}
+
+	override public func performDragOperation(_ sender:NSDraggingInfo) -> Bool
+	{
+		guard let fileDropDelegate = self.fileDropDelegate else { return super.performDragOperation(sender) }
+		return fileDropDelegate.objectBrowser(acceptDrop:sender)
+	}
+
+	override public func concludeDragOperation(_ sender:NSDraggingInfo?)
+	{
+		guard self.fileDropDelegate == nil else { return }
+		super.concludeDragOperation(sender)
 	}
 
 	// A click supersedes a selection still waiting for its Objects to appear
