@@ -141,6 +141,7 @@ public class BXObjectCollectionView : QuicklookCollectionView
                     self.selectionIndexPaths = Set([indexPath])
                     self.scrollToItems(at:[indexPath], scrollPosition:.nearestHorizontalEdge)
                     self.updatePreviewPanel()
+                    self.delegate?.collectionView?(self, didSelectItemsAt:[indexPath])
                 }
 			}
             
@@ -154,6 +155,7 @@ public class BXObjectCollectionView : QuicklookCollectionView
                     self.selectionIndexPaths = Set([indexPath])
                     self.scrollToItems(at:[indexPath], scrollPosition:.nearestHorizontalEdge)
                     self.updatePreviewPanel()
+                    self.delegate?.collectionView?(self, didSelectItemsAt:[indexPath])
                 }
 			}
             else
