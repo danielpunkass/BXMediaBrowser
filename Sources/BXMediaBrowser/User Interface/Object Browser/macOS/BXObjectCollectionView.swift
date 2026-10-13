@@ -104,6 +104,16 @@ public class BXObjectCollectionView : QuicklookCollectionView
 
 		let str = event.charactersIgnoringModifiers
 		let key = key(for:event)
+
+		// Delete and Forward Delete send the standard Delete action, which the host can implement to remove the
+		// selected Objects, as Edit > Delete does. Without a taker, the key does what it always did.
+
+		let deletionModifiers:NSEvent.ModifierFlags = [.command, .option, .control]
+		if (key == NSDeleteCharacter || key == NSDeleteFunctionKey) && event.modifierFlags.isDisjoint(with:deletionModifiers)
+		{
+			if NSApp.sendAction(#selector(NSText.delete(_:)), to:nil, from:self) { return }
+		}
+
         let indexes = self.selectionIndexPaths
         let n = indexes.count
         let objectCount = self.numberOfItems(inSection:0)
