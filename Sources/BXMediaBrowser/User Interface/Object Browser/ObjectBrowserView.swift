@@ -62,6 +62,7 @@ public struct ObjectBrowserView : View
 			Color.primary.opacity(0.2).frame(height:1) // Divider line
 			
 			ObjectCollectionView(librarySelection:librarySelection, cellType:cellType, uiState:uiState)
+				.overlay(viewFactory.objectsOverlayView(for:container, uiState:uiState).allowsHitTesting(false))
 			
 			Color.primary.opacity(0.2).frame(height:1) // Divider line
 

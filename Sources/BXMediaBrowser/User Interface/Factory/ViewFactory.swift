@@ -80,6 +80,11 @@ public protocol ViewFactoryAPI
 
 	func objectsFooterView(for container:Container?, uiState:UIState) -> AnyView
 
+	/// Returns a view laid over the Objects of the currently selected Container, such as a message shown while it is
+	/// empty. It does not take clicks or drops, which go to the Objects underneath.
+
+	func objectsOverlayView(for container:Container?, uiState:UIState) -> AnyView
+
 	/// Returns the type of ObjectViewController subclass to be used for the specified Container
 
 	func objectCellType(for container:Container?, uiState:UIState) -> ObjectCell.Type
@@ -125,6 +130,11 @@ open class ViewFactory : ViewFactoryAPI
 	open func objectsFooterView(for container:Container?, uiState:UIState) -> AnyView
 	{
 		typeErase( Self.defaultFooterView(for:container, uiState:uiState) )
+	}
+
+	open func objectsOverlayView(for container:Container?, uiState:UIState) -> AnyView
+	{
+		typeErase( EmptyView() )
 	}
 
 	open func objectCellType(for container:Container?, uiState:UIState) -> ObjectCell.Type
