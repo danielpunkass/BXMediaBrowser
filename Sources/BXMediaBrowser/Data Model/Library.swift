@@ -114,6 +114,7 @@ open class Library : ObservableObject, StateSaving
 		BXMediaBrowser.logDataModel.verbose {"\(Self.self).\(#function) \(identifier)"}
 		
 		self.identifier = identifier
+		self.selection.library = self
 
 		self.stateSaver.saveStateHandler =
 		{

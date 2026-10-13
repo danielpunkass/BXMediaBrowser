@@ -67,6 +67,9 @@ open class ImageObjectCell : ObjectCell
 		
 		let imageView = NSImageView(frame:CGRect(x:0, y:16, width:120, height:80))
 		imageView.image = Bundle.BXMediaBrowser.image(forResource:"thumbnail-placeholder")
+		// NSImageView registers for image drags even when it is not editable, and then refuses them, which would make a
+		// thumbnail a dead spot for anything dropped on the browser. Nothing is ever dropped on a cell itself.
+		imageView.unregisterDraggedTypes()
 		self.imageView = imageView
 		self.view.addSubview(imageView)
 		

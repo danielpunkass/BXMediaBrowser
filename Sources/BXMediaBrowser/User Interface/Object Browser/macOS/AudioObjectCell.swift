@@ -88,6 +88,9 @@ open class AudioObjectCell : ObjectCell
 		self.view.translatesAutoresizingMaskIntoConstraints = false
 		
 		let imageView = NSImageView(frame:CGRect(x:6, y:7, width:32, height:32))
+		// NSImageView registers for image drags even when it is not editable, and then refuses them, which would make a
+		// thumbnail a dead spot for anything dropped on the browser. Nothing is ever dropped on a cell itself.
+		imageView.unregisterDraggedTypes()
 		imageView.imageScaling = .scaleProportionallyUpOrDown
 		self.imageView = imageView
 		self.view.addSubview(imageView)

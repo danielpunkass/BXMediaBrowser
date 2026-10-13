@@ -117,7 +117,7 @@ public struct ObjectCollectionView<Cell:ObjectCell> : NSViewRepresentable
 		FolderDropDestination.registerDragTypes(for:collectionView)
 		collectionView.fileDropDelegateProvider =
 		{
-			[weak coordinator = context.coordinator] in coordinator?.container?.library?.fileDropDelegate
+			[weak librarySelection = self.librarySelection] in librarySelection?.library?.fileDropDelegate
 		}
 		
 		// Wrap in a NSScrollView

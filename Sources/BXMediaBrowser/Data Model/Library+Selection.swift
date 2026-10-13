@@ -48,6 +48,11 @@ extension Library
 		/// This property is incremented whenever the currently selected Container is loaded
 		
 		@Published public var loadCount = 0
+
+		/// The Library this is the selection of, for views that are handed only the selection but need something of
+		/// the Library itself, such as its file drop delegate, whether or not a Container is selected
+
+		public internal(set) weak var library:Library? = nil
 	}
 }
 
